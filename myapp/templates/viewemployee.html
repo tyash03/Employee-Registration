@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Employee</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'yourcssfile.css' %}">
+
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Image</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.empid }}</td>
+        <td>{{ employee.ename }}</td>
+        <td>{{ employee.dsg }}</td>
+        <td>{{ employee.salary }}</td>
+        <td><img src="{{ employee.image.url }}" height="50" width="50" alt="image"></td>
+        <td><a href="{% url 'deleteemployee' employee.empid %}">Delete</a></td>
+        <td><a href="{% url 'editemployee' employee.empid %}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'home' %}">Home Page</a>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'yourcssfile.css' %}">
+
+</head>
+<body>
+
+<form action="{% url 'updateemployee' data.empid %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="empid" value="{{ data.empid }}">
+    <input type="text" name="ename" value="{{ data.ename }}">
+    <input type="text" name="dsg" value="{{ data.dsg }}">
+    <input type="text" name="salary" value="{{ data.salary }}">
+    <input type="file" name="image">
+    <input type="submit" value="Update Employee">
+</form>
+
+<a href="{% url 'viewemployee' %}">View Employee</a><br>
+<a href="{% url 'home' %}">Home Page</a>
+
+</body>
+</html>
+

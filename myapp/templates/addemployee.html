@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'yourcssfile.css' %}">
+
+</head>
+<body>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Employee"/>
+</form>
+
+<a href="{% url 'home' %}">Home Page</a><br>
+<a href="{% url 'viewemployee' %}">View Employee</a>
+
+</body>
+</html>
